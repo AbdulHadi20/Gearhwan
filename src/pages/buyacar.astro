@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import { Navbar } from "../components/navbar.tsx";
+import { Component as Dropdownmenu } from '../components/Dropdownmenu.tsx';
+import { Button } from '@/components/ui/button';
 
 const herosection = {
   heading: "Discover Your Ideal Car",
@@ -11,7 +12,6 @@ const herosection = {
 ---
 
 <Layout>
-	<Navbar client:load/>
 
     <main>
 		<div class="absolute inset-0 bg-[url('/buyacarheroimg.png')] bg-cover bg-center max-w-screen object-cover h-[75vh]">
@@ -29,5 +29,43 @@ const herosection = {
 			  </p>
 		</div>
 	</main>
+
+	<section class="container mx-auto relative z-10 lg:max-w-screen-lg max-w-screen-sm lg:my-28 my-20 bg-accent p-4 rounded-2xl flex flex-col gap-5 items-center justify-center shadow-2xl">
+
+		<p class="lg:text-3xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap">Uncover Your Perfect Match</p>
+
+		<p class="text-center text-wrap text-destructive lg:text-lg text-md max-w-2xl">
+			Let’s find a car that matches your vibe! Answer a few quick questions so we can recommend rides that suit your personality and lifestyle.
+		</p>
+		
+
+		<!-- Dropdown Menu -->
+
+		<div class="flex flex-col gap-12 p-4">
+			<div class="flex flex-wrap gap-6">
+
+				<div class="flex-1 min-w-[200px]">
+					<span>
+						How do you usually spend your weekends?
+					</span>
+					<Dropdownmenu/>
+				</div>
+	
+				<div class="flex-1 min-w-[200px]">
+					<span>
+						How do you usually spend your weekends?
+					</span>
+					<Dropdownmenu/>
+				</div>
+			</div>
+		</div>
+
+		<a href="/buyacar">
+			<Button className="bg-secondary hover:bg-primary hover:text-primary-foreground text-destructive font-semibold uppercase my-2">
+			Take Complete Quiz
+			</Button>
+		</a>
+
+	</section>
 
 </Layout>

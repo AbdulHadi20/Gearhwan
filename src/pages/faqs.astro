@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import { FaqSection } from "@/components/faq";
+
+const herosection = {
+  heading: "Frequently Asked Questions",
+  description: "Find answers to common questions about our services.",
+};
+
+const FAQS = [
+  {
+    question: "What is Gearhwan?",
+    answer: "Gearhwan is an online platform that makes it easy and secure to buy and rent cars from verified sellers and owners. Whether you're looking for your next car or a short-term rental, Gearhwan is here to help.",
+  },
+  {
+    question: "How do I buy a car on Gearhwan?",
+    answer: "Browse available cars, filter by your preferences, and contact the owner directly through the platform. Gearhwan also provides secure communication and payment options to protect both parties.",
+  },
+  {
+    question: "How do I rent a car on Gearhwan?",
+    answer: "Simply search for rental cars in your location, choose your dates, and book directly through the platform. The car owner will confirm your booking and arrange pickup or delivery.",
+  },
+  {
+    question: "What documents are needed to rent a car?",
+    answer: "You’ll need a valid driver’s license, national ID or passport, and sometimes a deposit or proof of insurance, depending on the owner’s terms.",
+  },
+  {
+    question: "How do I sell my car on Gearhwan?",
+    answer: "The Selling feature is currently under development. Please check back later.",
+  },
+  {
+    question: "What are the payment options available?",
+    answer: "Gearhwan offers secure payment options through third-party payment gateways. We ensure that transactions are protected and transparent.",
+  },
+  {
+    question: "How do I create an account?",
+    answer: "You can create an account by signing up on our platform. It's quick and easy to get started.",
+  },
+  {
+    question: "How do I contact customer support?",
+    answer: "You can reach us via the “Contact Us” page or by emailing support@gearhwan.com. We aim to respond within 24 hours.",
+  },
+  {
+    question: "Can I schedule a test drive?",
+    answer: "Yes! You can message the seller to arrange a test drive before making a decision. Always meet in a public place for safety.",
+  },
+  {
+    question: "What are the terms and conditions?",
+    answer: "The terms and conditions for buying or renting a car are outlined in the platform’s terms and conditions. Always read and understand the terms before making a purchase or booking.",
+  },
+  {
+    question: "What are the cancellation policies?",
+    answer: "The cancellation policies vary based on the owner’s terms. Some owners may allow cancellations with a refund, while others may have a non-refundable policy. Always check the terms before booking.",
+  },
+];
+
+---
+
+<Layout>
+
+    <main>
+
+        <div class="container mx-auto lg:mt-42 mt-36 flex flex-col gap-5 items-center justify-center">
+
+            <h1 class="relative z-10 sm:px-2 lg:px-0 lg:max-w-screen-2xl uppercase text-center text-destructive text-2xl font-bold md:text-3xl lg:text-5xl text-wrap">
+                {herosection.heading}
+              </h1>
+              <p class="relative z-10 sm:px-2 lg:px-0 mx-auto mt-2 md:mt-4 lg:max-w-screen-2xl text-center text-destructive md:text-lg lg:text-xl text-wrap">
+                {herosection.description}
+              </p>
+        </div>
+
+    <div class="container mx-auto">
+
+        <FaqSection 
+        client:load 
+        items={FAQS}/>
+    </div>
+
+    
+
+    
+
+    
+
+    </Layout>

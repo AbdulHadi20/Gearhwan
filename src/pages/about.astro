@@ -1,12 +1,11 @@
 ---
+import { FeaturesSectionWithHoverEffects } from "@/components/Features";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import { Navbar } from "../components/navbar.tsx";
 
 ---
 
 <Layout>
-	<Navbar client:load/>
 
     <main>
 		<div class="absolute inset-0 bg-[url('/aboutheroimg.png')] bg-cover bg-center max-w-screen object-cover h-[75vh]">
@@ -14,5 +13,35 @@ import { Navbar } from "../components/navbar.tsx";
 		</div>
 
 	</main>
+
+	<section class="container mx-auto relative z-10 lg:mt-[35rem] mt-[5rem] flex flex-col gap-20 items-center justify-center bg-accent p-8 rounded-2xl shadow-xl">
+
+		<h3 class="lg:text-3xl md:text-2xl text-xl font-bold uppercase text-secondary text-center text-wrap">
+			About Us
+		</h3>
+
+		<div id="abouttext" class="flex flex-col gap-10">
+			<p class="text-center text-wrap text-destructive lg:text-lg text-md max-w-5xl">
+				Gearhwan is a car exchange and rental platform. The website offers users to buy new or used cars, sell their cars, and even 
+				rent cars available on the website. The platform also recommends cars based on the user’s personality. A short questionnaire 
+				is prepared to determine the buyer’s personality, which helps recommend cars that the user might enjoy driving. The website 
+				also has a dedicated guides page, where users can find guides and tutorials on how to perfectly maintain their cars, and fix minor 
+				issues by themselves. 
+			</p>
+
+			<p class="text-center text-wrap text-destructive lg:text-lg text-md max-w-5xl">
+				The word “Gearhwan” is based on a combination of two words. “Gear” is referred as another word for a vehicle. “Hwan” is an abbreviation 
+				taken from a Korean word “Gyohwan (교환)” which means exchange. The name of the platform can be translated to vehicle exchange, 
+				highlighting the main services of buying and selling vehicles on one platform
+			</p>
+		</div>
+
+		<img src="/aboutpagemercedes.png" alt="aboutmercedesimage" class="flex items-center justify-center mx-auto">
+	</section>
+
+	<FeaturesSectionWithHoverEffects/>
+
+
+
 
 </Layout>

@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import { Navbar } from "../components/navbar.tsx";
 
 const herosection = {
   heading: "Guides",
@@ -11,7 +10,6 @@ const herosection = {
 ---
 
 <Layout>
-	<Navbar client:load/>
 
     <main>
 		<div class="absolute inset-0 bg-[url('/guidesheroimg.png')] bg-cover bg-center max-w-screen object-cover h-[75vh]">

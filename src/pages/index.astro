@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
-import { Navbar } from '../components/navbar.tsx';
 import { Component as Dropdownmenu } from '../components/Dropdownmenu.tsx';
 import { Button } from '@/components/ui/button';
 import { FeaturesSectionWithHoverEffects } from '../components/Features.tsx';
@@ -15,7 +14,6 @@ const herosection = {
 ---
 
 <Layout>
-	<Navbar client:load/>
 
 	<main>
 		<div class="absolute inset-0 bg-[url('/homeheroimg.png')] bg-cover bg-center max-w-screen object-cover h-[75vh]">
