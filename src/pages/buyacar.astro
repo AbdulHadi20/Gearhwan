@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import { Component as Dropdownmenu } from '../components/Dropdownmenu.tsx';
+import SelectWrapper from '@/components/SelectWrapper.tsx';
 import { Button } from '@/components/ui/button';
 
 const herosection = {
@@ -9,6 +9,48 @@ const herosection = {
   description: "Find your next ride here!",
 };
 
+const weekendOptions = [
+  { label: "Going on road trips", value: "road-trips" },
+  { label: "Staying in and relaxing", value: "relaxing" },
+  { label: "Exploring the city", value: "city" },
+  { label: "Outdoor adventures", value: "adventures" },
+];
+
+const bestDescribeOptions = [
+  { label: "Bold and Adventurous", value: "bold-adventurous" },
+  { label: "Sleek and Professional", value: "sleek-professional" },
+  { label: "Elegant and Stylish", value: "elegant-stylish" },
+  { label: "Practical and Relaxed", value: "practical-relaxed" },
+];
+
+const attentionOptions = [
+  { label: "Love to stand out", value: "stand-out" },
+  { label: "Prefer to blend in", value: "blend-in" },
+  { label: "Depends on the situation", value: "depends-on-situation" },
+];
+
+const importanceDriveOptions = [
+  { label: "Power and performance", value: "power-performance" },
+  { label: "Comfort and space", value: "comfort-space" },
+  { label: "Style and tech", value: "style-tech" },
+  { label: "Efficiency and fuel", value: "efficiency-fuel" },
+];
+
+const movieGenreOptions = [
+  { label: "Action", value: "action" },
+  { label: "Comedy", value: "comedy" },
+  { label: "Drama", value: "drama" },
+  { label: "Documentary", value: "documentary" },
+  { label: "Adventure", value: "adventure" },
+];
+
+const personalityOptions = [
+  { label: "Adventurous", value: "adventurous" },
+  { label: "Responsible", value: "responsible" },
+  { label: "Stylish", value: "stylish" },
+  { label: "Efficient", value: "efficient" },
+  { label: "Spontaneous", value: "spontaneous" },
+];
 ---
 
 <Layout>
@@ -41,31 +83,94 @@ const herosection = {
 
 		<!-- Dropdown Menu -->
 
-		<div class="flex flex-col gap-12 p-4">
-			<div class="flex flex-wrap gap-6">
-
-				<div class="flex-1 min-w-[200px]">
-					<span>
-						How do you usually spend your weekends?
-					</span>
-					<Dropdownmenu/>
-				</div>
+		<div class="container mx-auto flex flex-wrap items-center justify-around gap-10">
+			<div class="flex flex-col gap-2 mt-20">
+				<span>How do you usually spend your weekends?</span>
+				<SelectWrapper 
+				  client:load
+				  name="weekend-activity"
+				  placeholder="Select an option"
+				  options={weekendOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
 	
-				<div class="flex-1 min-w-[200px]">
-					<span>
-						How do you usually spend your weekends?
-					</span>
-					<Dropdownmenu/>
-				</div>
-			</div>
+			<div class="flex flex-col gap-2 mt-20">
+				<span>Which of these best describes your style?</span>
+				<SelectWrapper 
+				  client:load
+				  name="best-describe"
+				  placeholder="Select an option"
+				  options={bestDescribeOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
 		</div>
 
-		<a href="/buyacar">
+		<div class="container mx-auto flex flex-wrap items-center justify-around gap-10">
+			<div class="flex flex-col gap-2 mt-20">
+				<span>How do you feel about attention?</span>
+				<SelectWrapper 
+				  client:load
+				  name="attention"
+				  placeholder="Select an option"
+				  options={attentionOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
+	
+			<div class="flex flex-col gap-2 mt-20">
+				<span>When driving, what is most important to you?</span>
+				<SelectWrapper 
+				  client:load
+				  name="importance-drive"
+				  placeholder="Select an option"
+				  options={importanceDriveOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
+		</div>
+
+		<div class="container mx-auto flex flex-wrap items-center justify-around gap-10">
+			<div class="flex flex-col gap-2 mt-20">
+				<span>If your life was a movie, what genre would it be?</span>
+				<SelectWrapper 
+				  client:load
+				  name="movie-genre"
+				  placeholder="Select an option"
+				  options={movieGenreOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
+	
+			<div class="flex flex-col gap-2 mt-20">
+				<span>Which word best describes your personality?</span>
+				<SelectWrapper 
+				  client:load
+				  name="personality"
+				  placeholder="Select an option"
+				  options={personalityOptions}
+				  onChange={(value) => console.log(value)}
+				/>
+			  </div>
+		</div>
+
+
+
+
+
+		<a href="/results">
 			<Button className="bg-secondary hover:bg-primary hover:text-primary-foreground text-destructive font-semibold uppercase my-2">
-			Take Complete Quiz
+			Find My Perfect Match
 			</Button>
 		</a>
 
 	</section>
+
+
+	<h3 class="lg:text-3xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap">All Cars</h3>
+
+	
+
 
 </Layout>

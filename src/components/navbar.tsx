@@ -17,6 +17,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+import { SignedIn, SignedOut, UserButton } from "@clerk/astro/react";
+
 export const Navbar = () => {
 
   return (
@@ -55,8 +57,17 @@ export const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
           <div className="hidden items-center gap-4 lg:flex">
+            <SignedOut>
+            <a href="/signin">
             <Button className="border rounded-md border-primary bg-accent font-semibold uppercase text-primary hover:bg-secondary hover:text-primary-foreground">Sign in</Button>
+            </a>
+            <a href="/register">
             <Button className="rounded-md p-2 bg-secondary text-destructive font-semibold uppercase hover:bg-primary hover:text-primary-foreground hover:border-primary-foreground hover:border">Start for free</Button>
+            </a>
+            </SignedOut>
+            <SignedIn>
+            <UserButton />
+            </SignedIn>
           </div>
           <Sheet>
             <SheetTrigger asChild className="lg:hidden">
@@ -95,8 +106,12 @@ export const Navbar = () => {
                   </a>
                 </div>
                 <div className="mt-6 flex flex-col gap-4">
+                  <a href="/signin">
                   <Button className="flex justify-center items-center mx-auto border rounded-md border-primary bg-accent font-semibold uppercase text-primary hover:bg-secondary hover:text-primary-foreground">Sign in</Button>
+                  </a>
+                  <a href="/register">
                   <Button className="flex justify-center items-center mx-auto rounded-md p-2 bg-secondary font-semibold uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary-foreground hover:border">Start for free</Button>
+                  </a>
                 </div>
               </div>
             </SheetContent>

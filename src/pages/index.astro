@@ -1,15 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
-import { Component as Dropdownmenu } from '../components/Dropdownmenu.tsx';
 import { Button } from '@/components/ui/button';
 import { FeaturesSectionWithHoverEffects } from '../components/Features.tsx';
 import Contactform from '@/components/contactform.astro';
+import SelectWrapper from '@/components/SelectWrapper.tsx';
+import { Blog7 } from '../components/blog7.tsx';
+import { ArrowRight } from 'lucide-react';
 
 const herosection = {
   heading: "WHERE CARS CHANGE HANDS - SEAMLESSLY",
   description: "Buy or rent your next ride with confidence.",
 };
+
+const weekendOptions = [
+  { label: "Going on road trips", value: "road-trips" },
+  { label: "Staying in and relaxing", value: "relaxing" },
+  { label: "Exploring the city", value: "city" },
+  { label: "Outdoor adventures", value: "adventures" },
+];
+
+const demoData = {
+  posts: [
+    {
+      id: "post-1",
+      title: "Beat the Heat: Essential Car AC Service and Repair Tips for Summer",
+      summary:
+        "As the summer sun begins to blaze, the importance of a well-functioning car air conditioning (AC) system becomes undeniable. Whether you're commuting to work, heading out for a weekend getaway, or simply running errands, a cool and comfortable car interior is a must. .",
+      label: "Maintenance",
+      author: "Jane Doe",
+      published: "1 March 2025",
+      url: "https://servicemycar.com/uae/blog/beat-the-heat-essential-car-ac-service-and-repair-tips-for-summer",
+      image: "https://resources.servicemycar.com/upimages/blogs/car-ac-repair-20250305023036.jpeg",
+    },
+    {
+      id: "post-2",
+      title: "10 Car Maintenance Tips For Car Owners",
+      summary:
+        "Whether you’re a new car owner or have had one for a long time, following a car maintenance checklist is a must. It’s a smart idea to ensure your car’s longevity as it will help you identify potential problems before they become too big.",
+      label: "Maintenance",
+      author: "Jane Doe",
+      published: "1 Jan 2024",
+      url: "https://totalenergies.ae/blogs/car-maintenance-tips/10-car-maintenance-tips",
+      image: "https://dxm.content-center.totalenergies.com/api/wedia/dam/transform/xysh7dg731ta7wiai3ada659ce/10-car-maintenance-tips-1-jpg.webp?t=resize&width=668&height=374",
+    },
+    {
+      id: "post-3",
+      title: "How To Choose What Type Of Used Car You Need To Buy",
+      summary:
+        "Buying a car is usually the second-most expensive purchase you’ll make, so it’s important to consider all the pros and cons before you part with your money. While we would all like to be able to afford to buy a brand new car outright, the truth is that the vast majority of car purchases these days are pre-owned or used models.",
+      label: "Buy Car Guide",
+      author: "Al Futtaim",
+      published: "N/A",
+      url: "https://www.automall.ae/en/news/how-to-choose-what-type-of-used-car-you-need-to-buy/",
+      image: "https://dam.alfuttaim.com/dx/api/dam/v1/collections/5f2e14da-0c21-4550-9dbb-e5957f249bfb/items/70ecfbf6-4bf9-4733-a0c0-49d8857071f6/renditions/092a27b4-6155-40e8-8fac-d9ea0e47a840?binary=true&mformat=true",
+    },
+]}
 
 ---
 
@@ -43,14 +89,15 @@ const herosection = {
 
 		<!-- Dropdown Menu -->
 		<div class="flex flex-col gap-2 mt-20">
-
-			<span>
-				How do you usually spend your weekends?
-			</span>
-
-			<Dropdownmenu/>
-			
-		</div>
+			<span>How do you usually spend your weekends?</span>
+			<SelectWrapper 
+			  client:load
+			  name="weekend-activity"
+			  placeholder="Select an option"
+			  options={weekendOptions}
+			  onChange={(value) => console.log(value)}
+			/>
+		  </div>
 
 		<a href="/buyacar">
 			<Button className="bg-secondary hover:bg-primary hover:text-primary-foreground text-destructive font-semibold uppercase my-2">
@@ -88,8 +135,15 @@ const herosection = {
 
 	<h3 class="lg:text-4xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap my-20">Featured Cars</h3>
 
+	<section class="container mx-auto relative z-10 mt-[10rem] flex flex-col gap-20 items-center justify-center">
 
-	<h3 class="lg:text-4xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap my-20">Guides</h3>
+		<Blog7 client:load {...demoData}/>
+		<a href="/guides"><Button className="bg-secondary hover:bg-primary hover:text-primary-foreground text-destructive font-semibold uppercase">
+			View All Guides
+			<ArrowRight className="ml-2 size-4" />
+		</Button></a>
+	</section>
+
 
 
 

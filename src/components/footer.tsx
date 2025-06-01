@@ -41,7 +41,7 @@ const defaultSections = [
       { name: "Contact Us", href: "/contactpage" },
       { name: "FAQ", href: "/faqs" },
       { name: "Sign In", href: "/signin" },
-      { name: "Sign Up", href: "/signup" },
+      { name: "Sign Up", href: "/register" },
     ],
   },
 ];

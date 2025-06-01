@@ -1,10 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { Blog7 } from "../components/blog7.tsx";
+import { VideoGrid } from "../components/VideoGrid.tsx";
 
 const herosection = {
   heading: "Guides",
   description: "Drive With Confidence!",
+};
+
+const demoData = {
+  posts: [
+    {
+      id: "post-1",
+      title: "Beat the Heat: Essential Car AC Service and Repair Tips for Summer",
+      summary:
+        "As the summer sun begins to blaze, the importance of a well-functioning car air conditioning (AC) system becomes undeniable. Whether you're commuting to work, heading out for a weekend getaway, or simply running errands, a cool and comfortable car interior is a must. .",
+      label: "Maintenance",
+      author: "Jane Doe",
+      published: "1 March 2025",
+      url: "https://servicemycar.com/uae/blog/beat-the-heat-essential-car-ac-service-and-repair-tips-for-summer",
+      image: "https://resources.servicemycar.com/upimages/blogs/car-ac-repair-20250305023036.jpeg",
+    },
+    {
+      id: "post-2",
+      title: "10 Car Maintenance Tips For Car Owners",
+      summary:
+        "Whether you’re a new car owner or have had one for a long time, following a car maintenance checklist is a must. It’s a smart idea to ensure your car’s longevity as it will help you identify potential problems before they become too big.",
+      label: "Maintenance",
+      author: "Jane Doe",
+      published: "1 Jan 2024",
+      url: "https://totalenergies.ae/blogs/car-maintenance-tips/10-car-maintenance-tips",
+      image: "https://dxm.content-center.totalenergies.com/api/wedia/dam/transform/xysh7dg731ta7wiai3ada659ce/10-car-maintenance-tips-1-jpg.webp?t=resize&width=668&height=374",
+    },
+    {
+      id: "post-3",
+      title: "How To Choose What Type Of Used Car You Need To Buy",
+      summary:
+        "Buying a car is usually the second-most expensive purchase you’ll make, so it’s important to consider all the pros and cons before you part with your money. While we would all like to be able to afford to buy a brand new car outright, the truth is that the vast majority of car purchases these days are pre-owned or used models.",
+      label: "Buy Car Guide",
+      author: "Al Futtaim",
+      published: "N/A",
+      url: "https://www.automall.ae/en/news/how-to-choose-what-type-of-used-car-you-need-to-buy/",
+      image: "https://dam.alfuttaim.com/dx/api/dam/v1/collections/5f2e14da-0c21-4550-9dbb-e5957f249bfb/items/70ecfbf6-4bf9-4733-a0c0-49d8857071f6/renditions/092a27b4-6155-40e8-8fac-d9ea0e47a840?binary=true&mformat=true",
+    },
+	{
+      id: "post-4",
+      title: "Top 10 Most Expensive Cars to Drive in 2025",
+      summary:
+        "When people talk about the most expensive cars, they often focus on sticker price. But what if we considered how much it costs to use a car instead? A new report from iSeeCars analyzed over a million three-year-old vehicles to measure not just what cars cost new, but how much they actually get driven.",
+      label: "Car Facts",
+      author: "Elijah Nicholson",
+      published: "28 May 2025",
+      url: "https://www.autoblog.com/features/top-10-most-expensive-cars-to-drive-2025",
+      image: "https://www.autoblog.com/.image/w_750,q_auto:good,c_fill,ar_4:3/MjA5MTMwOTIzOTMwMzYzNzQ4/mercedes-benz-g-class.jpg",
+    },
+
+	{
+      id: "post-5",
+      title: "Things to Remember Before You Buy an Electric Car",
+      summary:
+        "The charm of electric cars (EVs) has never been this stronger, as it is these days. These green vehicles have a positive impact on the environment and protect owners from the hike in fuel prices. If you are thinking about when to buy an electric car then this is the right time.",
+      label: "Buy Car Guide",
+      author: "Dubizzle Car Blog",
+      published: "N/A",
+      url: "https://www.dubizzle.com/blog/cars/switch-to-electric-car/",
+      image: "https://d2hucwwplm5rxi.cloudfront.net/wp-content/uploads/2022/04/04051614/shifting-to-electric-car-Cover-30-03.jpg",
+    },
+	{
+      id: "post-6",
+      title: "How to Fix Squeaky Brakes",
+      summary:
+        "If you're contending with squeaky brakes, one of the first things you should do is try to identify the cause of the squeak. You should know that all brakes make some noise sometimes and that the occasional squeak isn't a problem, and a squeaky brake can stop a car just like a silent one can.",
+      label: "Car Maintenance",
+      author: "Mike Allen and Stef Schrader",
+      published: "9 April 2025",
+      url: "https://www.popularmechanics.com/cars/car-technology/a64431847/how-to-fix-squeaky-brakes/",
+      image: "https://hips.hearstapps.com/hmg-prod/images/car-braking-system-repair-royalty-free-image-499316644-1552587782.jpg?crop=1xw:1xh;center,top&resize=980:*",
+    },
+  ],
 };
 
 ---
@@ -27,5 +101,19 @@ const herosection = {
 			  </p>
 		</div>
 	</main>
+
+	<section class="container mx-auto relative z-10 lg:mt-[15rem] mt-[10rem] flex flex-col gap-20 items-center justify-center">
+
+		<Blog7 client:load {...demoData}/>
+	</section>
+
+	<section class="container mx-auto relative z-10 mt-[10rem] flex flex-col gap-20 items-center justify-center mb-20">
+
+		<h3 class="lg:text-3xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap">Videos</h3>
+		<VideoGrid client:load/>
+	</section>
+
+
+
 
 </Layout>

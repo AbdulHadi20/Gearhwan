@@ -1,0 +1,49 @@
+---
+import { SignIn } from "@clerk/astro/components";
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/mainWhiteLogo.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>Sign In</title>
+</head>
+<body>
+    
+    <div class="container mx-auto">
+
+        <div class="min-h-screen flex items-center justify-center">
+            <SignIn signUpUrl="/register"
+            appearance={{
+            layout: {
+                logoImageUrl: "/primarycolorlogo.svg",
+                socialButtonsPlacement: "bottom",
+                shimmer: true,
+            },
+            elements: {
+                rootBox: {
+                    maxWidth: "60rem",
+                },
+                cardBox: {
+                    maxWidth: "60rem",
+                },
+                card: {
+                    maxWidth: "60rem",
+                },
+                formButtonPrimary: {
+                    backgroundColor: "#0A2540",
+                },
+            },
+        }}     
+            />
+        </div>
+    </div>
+</body>
+</html>
