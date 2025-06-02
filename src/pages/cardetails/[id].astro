@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CarDetails from '@/components/CarDetails.tsx';
+
+export const prerender = false;
+
+// Extract the dynamic 'id' parameter from the URL.
+// For a file named `[id].astro`, Astro.params.id will contain the value from the URL segment.
+const carId = Astro.params.id || '';
+
+// Optional: Basic validation for carId
+if (!carId) {
+  
+  console.warn("No car ID found in URL parameters for /cars/[id].astro");
+}
+---
+
+<Layout title={`Car Details: ${carId || 'Loading...'}`}>
+  <main class="container mx-auto p-4">
+    
+    <CarDetails carId={carId} client:load />
+  </main>
+</Layout>

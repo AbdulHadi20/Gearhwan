@@ -7,6 +7,7 @@ import Contactform from '@/components/contactform.astro';
 import SelectWrapper from '@/components/SelectWrapper.tsx';
 import { Blog7 } from '../components/blog7.tsx';
 import { ArrowRight } from 'lucide-react';
+import RandomCarListings from '@/components/RandomCarListings';
 
 const herosection = {
   heading: "WHERE CARS CHANGE HANDS - SEAMLESSLY",
@@ -133,7 +134,15 @@ const demoData = {
 		</div>
 	</div>
 
-	<h3 class="lg:text-4xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap my-20">Featured Cars</h3>
+
+	<section class="container mx-auto relative z-10 mt-[10rem] flex flex-col gap-20 items-center justify-center">
+		<h3 class="lg:text-4xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap my-20">Featured Cars</h3>
+		<RandomCarListings client:load/>
+		<a href="/buyacar"><Button className="bg-secondary hover:bg-primary hover:text-primary-foreground text-destructive font-semibold uppercase">
+			View All Cars
+			<ArrowRight className="ml-2 size-4" />
+		</Button></a>
+	</section>
 
 	<section class="container mx-auto relative z-10 mt-[10rem] flex flex-col gap-20 items-center justify-center">
 

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { CarListings } from "../components/carListings";
 
 const herosection = {
   heading: "Rent a Car",
@@ -27,5 +28,13 @@ const herosection = {
 			  </p>
 		</div>
 	</main>
+
+	<section class="container mx-auto relative z-10 lg:mt-[25rem] mt-[10rem] flex flex-col gap-20 items-center justify-center">
+
+	<h3 class="lg:text-3xl md:text-2xl text-xl font-bold uppercase text-destructive text-center text-wrap">All Rentals</h3>
+
+	<CarListings client:load/>
+		
+	</section>
 
 </Layout>
